@@ -38,7 +38,8 @@ void GameUtil::printGridInfo(int **grid)
     {
         for (int column = 0; column < 9; column++)
             std::cout << grid[row][column] << " ";
-        std::cout << std::endl;
+
+        std::cout << '\n';
     }
     std::cout << "----------------------------------\n";
 }

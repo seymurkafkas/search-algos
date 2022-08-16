@@ -34,21 +34,12 @@ int main(int argc, char **argv)
         std::string inputFilePath = fetchInputFilePath(argc, argv);
         Benchmark::initialiseNodeBookkeeper();
         Sudoku::Game gameInstance(inputFilePath);
-        //Agent<MinMaxSolver> agent(gameInstance);  // Simple Minimax algorithm
         Agent<MinMaxPruningSolver> pruningAgent(gameInstance); // Alpha-Beta Pruning algorithm
-        std::cout << pruningAgent.getVictor() << std::endl;
-
-        /*         { // Timer and node bookkeepers
+        {                                                      // Timer and node bookkeepers
             BenchmarkTimer timerForPruningBlock("Alpha-Beta Pruning Algorithm");
             std::cout << pruningAgent.getVictor() << std::endl;
         }
         Benchmark::printResults();
-        Benchmark::reset();
-        {
-            BenchmarkTimer timerForBlock("Minmax Algorithm");
-            std::cout << agent.getVictor() << std::endl;
-        }
-        Benchmark::printResults(); */
     }
     catch (std::string err)
     {
