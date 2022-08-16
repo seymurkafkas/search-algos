@@ -1,0 +1,7 @@
+6	11
+W	W	W	W	W	W	W	W	W	W	W
+W	G1	E	E	E	W	W	E	E	E	W
+W	E	S1	E	E	A	E	E	E	E	W
+W	G2	S2	E	W	E	W	W	E	E	W
+W	E	E	E	W	E	E	E	E	E	W
+W	W	W	W	W	W	W	W	W	W	W
