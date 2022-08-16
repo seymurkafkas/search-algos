@@ -11,7 +11,7 @@ void FileHandler::validateNextInput(std::fstream &inputFileToValidate)
 void FileHandler::validateFileHandler(std::fstream &fileHandlerToValidate)
 {
     if (fileHandlerToValidate.fail())
-        throw std::string("Invalid FilePath\n");
+        throw std::string("Invalid File Path\n");
 }
 
 void FileHandler::fillGameFromFileHandler(Sudoku::Game &gameInstance, std::fstream &inputTextFileHandle)
