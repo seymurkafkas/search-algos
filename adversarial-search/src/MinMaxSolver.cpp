@@ -10,9 +10,7 @@ int MinMaxSolver::solveWithMinMax()
 {
     Sudoku::GameState initialState = this->gameToSolve.initialState;
     if (initialState.isTerminalState())
-    {
         return -1;
-    }
     int maxChildUtility = -1; // min possible utility (INF)
     for (auto action : initialState.getAvailableActions())
     {

@@ -30,24 +30,19 @@ void Sudoku::Game::setInitialState(GameState initialState)
 bool Sudoku::GameState::isActionValid(Action consideredAction)
 {
     if (checkRowConstraint(consideredAction) && checkColumnConstraint(consideredAction) && checkGroupConstraint(consideredAction))
-    {
         return true;
-    }
     else
-    {
         return false;
-    }
 }
 
 bool Sudoku::GameState::checkRowConstraint(Action consideredAction)
 {
     int row = consideredAction.position.first;
+
     for (int column = 0; column < 9; column++)
     {
         if (grid[row][column] == consideredAction.number)
-        {
             return false;
-        }
     }
     return true;
 }
@@ -55,6 +50,7 @@ bool Sudoku::GameState::checkRowConstraint(Action consideredAction)
 bool Sudoku::GameState::checkColumnConstraint(Action consideredAction)
 {
     int column = consideredAction.position.second;
+
     for (int row = 0; row < 9; row++)
     {
         if (grid[row][column] == consideredAction.number)
@@ -69,14 +65,13 @@ bool Sudoku::GameState::checkGroupConstraint(Action consideredAction)
 {
     int topLeftRow = consideredAction.position.first - (consideredAction.position.first % 3);
     int topLeftColumn = consideredAction.position.second - (consideredAction.position.second % 3);
+
     for (int rowDiff = 0; rowDiff < 3; rowDiff++)
     {
         for (int columnDiff = 0; columnDiff < 3; columnDiff++)
         {
             if (grid[topLeftRow + rowDiff][topLeftColumn + columnDiff] == consideredAction.number)
-            {
                 return false;
-            }
         }
     }
 
@@ -89,13 +84,12 @@ void Sudoku::GameState::fillAvailableActions()
     {
         Action potentialAction;
         potentialAction.position = position;
+
         for (int i = 1; i <= 9; i++)
         {
             potentialAction.number = i;
             if (isActionValid(potentialAction))
-            {
                 availableActions.push_back(potentialAction);
-            }
         }
     }
     return;
@@ -108,6 +102,7 @@ std::vector<Sudoku::Action> &Sudoku::GameState::getAvailableActions()
         fillAvailableActions();
         areActionsInitialized = true;
     }
+
     return availableActions;
 }
 
@@ -172,13 +167,9 @@ Sudoku::GameState::GameState(std::unordered_set<Coordinates, CoordinateHasher, C
 bool Sudoku::GameState::isTerminalState()
 {
     if (unassignedEntries.empty())
-    {
         return true;
-    }
     else if (getAvailableActions().empty())
-    {
         return true;
-    }
     return false;
 }
 

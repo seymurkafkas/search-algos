@@ -8,7 +8,7 @@ typedef std::pair<int, int> Coordinates;
 
 /**
  *      Hash coordinates on the Sudoku grid.
- * @param coordinates The current position pair to be combined 
+ * @param coordinates The current position pair to be combined
  * @return The updated hash value
  */
 std::size_t hashCoordinate(Coordinates &position);

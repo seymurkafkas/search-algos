@@ -5,17 +5,13 @@
 void FileHandler::validateNextInput(std::fstream &inputFileToValidate)
 {
     if (!inputFileToValidate.good())
-    {
         throw "Error while reading input";
-    }
 }
 
 void FileHandler::validateFileHandler(std::fstream &fileHandlerToValidate)
 {
     if (fileHandlerToValidate.fail())
-    {
         throw std::string("Invalid FilePath\n");
-    }
 }
 
 void FileHandler::fillGameFromFileHandler(Sudoku::Game &gameInstance, std::fstream &inputTextFileHandle)

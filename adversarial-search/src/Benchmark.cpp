@@ -10,9 +10,7 @@ void Benchmark::increaseNodeCountInMemory()
     currentNodeCountInMemory++;
     totalGeneratedNodeCount++;
     if (currentNodeCountInMemory > maximumNodeCountInMemory)
-    {
         maximumNodeCountInMemory = currentNodeCountInMemory;
-    }
 }
 
 void Benchmark::decreaseNodeCountInMemory()

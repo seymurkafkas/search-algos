@@ -8,23 +8,22 @@ bool MinMaxPruningSolver::findWinner()
 int MinMaxPruningSolver::solveWithMinMaxPruning()
 {
     Sudoku::GameState initialState = this->gameToSolve.initialState;
+    if (initialState.isTerminalState())
+        return -1;
+
     int alpha = -1;
     int beta = 1;
-    if (initialState.isTerminalState())
-    {
-        return -1;
-    }
-    int maxChildUtility = -1; //min possible utility
+    int maxChildUtility = -1; // min possible utility
+
     for (auto action : initialState.getAvailableActions())
     {
         Sudoku::GameState successorState = initialState.getNextState(action);
         maxChildUtility = std::max(maxChildUtility, minUtility(successorState, alpha, beta));
         if (maxChildUtility >= beta)
-        {
             return maxChildUtility;
-        }
         alpha = std::max(alpha, maxChildUtility);
     }
+
     return maxChildUtility;
 }
 
