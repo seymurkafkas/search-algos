@@ -1,15 +1,15 @@
-#ifndef BenchmarkTimerGuard
-#define BenchmarkTimerGuard
+#ifndef TimerGuard
+#define TimerGuard
 
 #include <string>
 #include <chrono>
 #include <iostream>
 
-class BenchmarkTimer
+class Timer
 {
 public:
-    BenchmarkTimer(std::string benchmarkDescriptor);
-    ~BenchmarkTimer();
+    Timer(std::string benchmarkDescriptor);
+    ~Timer();
 
 private:
     std::chrono::time_point<std::chrono::high_resolution_clock> startTimePoint;
