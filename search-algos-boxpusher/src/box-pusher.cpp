@@ -529,18 +529,16 @@ SearchNode *BoxPusherGame::breadthFirstSearch()
     frontier.addNode(initialNode);
     visitedSet.markAsVisited(initialState);
     SearchNode *current;
+
     while (!frontier.isEmpty())
     {
         current = frontier.popNextNode();
         if (current->isGoalReached())
-        {
             return current;
-        }
         else
-        {
             current->expandNode();
-        }
     }
+
     return nullptr;
 }
 
@@ -558,9 +556,7 @@ SearchNode *BoxPusherGame::iterativeDeepeningSearch()
         SearchNode *initialNode = new SearchNode(nullptr, nullptr, nullptr, &boxGoalPositions, copyOfInitialState, 'X', 0, 0);
         result = recursiveDepthLimitedSearch(initialNode, depth);
         if (result)
-        {
             break;
-        }
     }
     return result;
 }
@@ -587,13 +583,9 @@ void BoxPusherGame::searchForSolutionWithAlgorithm(SearchAlgorithm algorithmName
         break;
     }
     if (solution)
-    {
         writeSolutionToFile(solution);
-    }
     else
-    {
         std::cout << "No solution is found" << std::endl;
-    }
 }
 
 /**
@@ -623,9 +615,7 @@ SearchNode *BoxPusherGame::recursiveDepthLimitedSearch(SearchNode *currentNode, 
                 currentNode->removeEntitiesFromUpdatedMap();
                 SearchNode *result = recursiveDepthLimitedSearch(nextNode, depthLimit);
                 if (result)
-                {
                     return result;
-                }
             }
         }
         currentNode->removeEntitiesFromUpdatedMap();
@@ -662,18 +652,14 @@ SearchNode *BoxPusherGame::aStarSearch()
             continue;
         }
         else
-        {
             visitedSet.markAsVisited(current->currentState);
-        }
+
         if (current->isGoalReached())
-        {
             return current;
-        }
         else
-        {
             current->expandNodeAStar();
-        }
     }
+
     return nullptr;
 }
 
@@ -708,6 +694,7 @@ void BoxPusherGame::printGame()
         std::cout << "Box Location:" << initialState->boxPositions[i].first << " , " << initialState->boxPositions[i].second << std::endl;
         std::cout << "Box Goal Location:" << boxGoalPositions[i].first << " , " << boxGoalPositions[i].second << std::endl;
     }
+
     std::cout << "Agent Location" << initialState->agentLocation.first << " , " << initialState->agentLocation.second << std::endl;
 }
 
@@ -721,7 +708,6 @@ void BoxPusherGame::setInitialGameState(GameState *inputGameState)
     initialState = inputGameState;
 }
 
-////////////////////////////////////GAMESTATE
 GameState::GameState()
 {
 }
@@ -864,22 +850,19 @@ void GameState::printMap()
     for (int i = 0; i < rowCount; ++i)
     {
         for (int j = 0; j < columnCount; ++j)
-        {
             std::cout << gameMap[i][j] << " ";
-        }
+
         std::cout << std::endl;
     }
-    std::cout << "===================================" << std::endl;
-    std::cout << "===================================" << std::endl
-              << std::endl;
+
+    std::cout << "===================================\n";
+    std::cout << "===================================\n\n";
 }
 
 void GameState::printState()
 {
     for (unsigned int i = 0; i < this->boxPositions.size(); i++)
-    {
         std::cout << "Box " << i << " Location: " << boxPositions[i].first << " , " << boxPositions[i].second << std::endl;
-    }
     std::cout << "Agent Location: " << agentLocation.first << " , " << agentLocation.second << std::endl;
 }
 
@@ -895,11 +878,13 @@ int GameState::calculateHeuristic(std::vector<std::pair<int, int>> &boxGoalPosit
 {
     int heuristicResult = 0;
     int index = 0;
+
     for (auto &boxCoordinates : boxPositions)
     {
         heuristicResult += util::getManhattanDistance(boxCoordinates, boxGoalPositions[index]);
         index++;
     }
+
     return heuristicResult;
 }
 
@@ -945,13 +930,9 @@ bool SearchNode::isGoalReached()
 bool SearchNode::operator<(const SearchNode &rhs)
 {
     if (this->totalCost == rhs.totalCost)
-    {
         return this->heuristicCost > rhs.heuristicCost;
-    }
     else
-    {
         return this->totalCost > rhs.totalCost;
-    }
 }
 
 void SearchNode::expandNode()
@@ -965,9 +946,7 @@ void SearchNode::expandNode()
             SearchNode *successor = generateSuccessorNode(consideredAction, true);
 
             if (successor)
-            {
                 frontier->addNode(successor);
-            }
         }
     }
     removeEntitiesFromUpdatedMap();
@@ -983,9 +962,7 @@ void SearchNode::expandNodeAStar()
         {
             SearchNode *successor = generateAStarSuccessorNodeIfUnvisited(consideredAction);
             if (successor)
-            {
                 frontier->addNode(successor);
-            }
         }
     }
     removeEntitiesFromUpdatedMap();
