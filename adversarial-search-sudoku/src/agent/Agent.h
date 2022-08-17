@@ -3,6 +3,8 @@
 
 #include "Sudoku.h"
 #include "SudokuSolver.h"
+#include "MinMaxPruningSolver.h"
+#include "MinMaxSolver.h"
 
 template <typename T>
 class Agent

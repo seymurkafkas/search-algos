@@ -44,6 +44,7 @@ bool Sudoku::GameState::checkRowConstraint(Action consideredAction)
         if (grid[row][column] == consideredAction.number)
             return false;
     }
+
     return true;
 }
 
@@ -54,10 +55,9 @@ bool Sudoku::GameState::checkColumnConstraint(Action consideredAction)
     for (int row = 0; row < 9; row++)
     {
         if (grid[row][column] == consideredAction.number)
-        {
             return false;
-        }
     }
+
     return true;
 }
 
@@ -170,6 +170,7 @@ bool Sudoku::GameState::isTerminalState()
         return true;
     else if (getAvailableActions().empty())
         return true;
+
     return false;
 }
 

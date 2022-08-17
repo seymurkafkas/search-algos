@@ -1,6 +1,5 @@
 #include "Agent.h"
-#include "MinMaxPruningSolver.h"
-#include "MinMaxSolver.h"
+
 
 template <typename T>
 Agent<T>::Agent(Sudoku::Game &game) : gameInstance(game), solver(game)
