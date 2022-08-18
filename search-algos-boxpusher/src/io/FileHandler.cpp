@@ -5,6 +5,7 @@
 #include <vector>
 #include <GameState.h>
 #include <algorithm>
+#include <BoxPusherGame.h>
 
 void FileHandler::createGameFromFile(std::string filePath, BoxPusherGame &game)
 {

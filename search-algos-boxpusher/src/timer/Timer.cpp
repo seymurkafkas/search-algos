@@ -1,4 +1,5 @@
 #include <Timer.h>
+#include <iostream>
 
 Timer::Timer(std::string benchmarkDescriptor = "")
 {

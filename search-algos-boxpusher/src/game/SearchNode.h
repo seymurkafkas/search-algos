@@ -1,8 +1,13 @@
 #ifndef GAME_SEARCHNODE_H
 #define GAME_SEARCHNODE_H
 
-#include <ClosedSet.h>
-#include <Frontier.h>
+#include <vector>
+#include <utility>
+#include <string>
+
+class ClosedSet;
+class Frontier;
+class GameState;
 
 class SearchNode
 {
@@ -28,6 +33,11 @@ public:
     std::vector<std::pair<int, int>> *boxGoalPositions;
     int pathCost, totalCost, heuristicCost;
     GameState *currentState;
+};
+
+struct NodeComparator
+{
+    bool operator()(SearchNode *lhs, SearchNode *rhs);
 };
 
 #endif

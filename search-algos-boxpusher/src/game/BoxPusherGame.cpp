@@ -2,6 +2,10 @@
 #include <string>
 #include <FileHandler.h>
 #include <ClosedSet.h>
+#include <Queue.h>
+#include <PriorityQueue.h>
+#include <Actions.h>
+#include <Benchmark.h>
 
 BoxPusherGame::BoxPusherGame()
 {

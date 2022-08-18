@@ -19,8 +19,11 @@ std::size_t hashGameState(const GameState &stateToHash)
     size_t hashValue = 0;
     hashValue = combineHashValue(hashValue, stateToHash.agentLocation);
     for (auto &coordinate : stateToHash.boxPositions)
-    {
         hashValue = combineHashValue(hashValue, coordinate);
-    }
     return hashValue;
+}
+
+std::size_t GameStateHasher::operator()(const GameState *hashedState) const
+{
+    return hashGameState(*hashedState);
 }

@@ -171,3 +171,8 @@ int GameState::calculateHeuristic(std::vector<std::pair<int, int>> &boxGoalPosit
 
     return heuristicResult;
 }
+
+bool GameStateEquivalence::operator()(GameState *firstState, GameState *secondState) const
+{
+    return *firstState == *secondState;
+}

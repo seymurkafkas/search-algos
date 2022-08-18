@@ -6,6 +6,7 @@
 #include <Benchmark.h>
 #include <SearchAlgorithm.h>
 #include <Timer.h>
+#include <iostream>
 
 std::pair<std::string, std::string> fetchCommandLineArguments(int argc, char **argv)
 {

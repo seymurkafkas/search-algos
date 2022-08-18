@@ -7,7 +7,7 @@
 class Timer
 {
 public:
-    Timer(std::string benchmarkDescriptor = "");
+    Timer(std::string);
     ~Timer();
 
 private:

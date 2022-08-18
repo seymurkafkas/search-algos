@@ -4,6 +4,9 @@
 #include <ClosedSet.h>
 #include <utility>
 #include <vector>
+#include <Benchmark.h>
+#include <FileHandler.h>
+#include <Actions.h>
 
 SearchNode::SearchNode()
 {
@@ -147,4 +150,9 @@ void SearchNode::addEntitiesToRawMap()
 void SearchNode::removeEntitiesFromUpdatedMap()
 {
     currentState->removeEntitiesFromMap();
+}
+
+bool NodeComparator::operator()(SearchNode *lhs, SearchNode *rhs)
+{
+    return *lhs < *rhs;
 }

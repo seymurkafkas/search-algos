@@ -3,6 +3,8 @@
 
 #include <SearchNode.h>
 #include <GameState.h>
+#include <SearchAlgorithm.h>
+#include <string>
 
 class BoxPusherGame
 {

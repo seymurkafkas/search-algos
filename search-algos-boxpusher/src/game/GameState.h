@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <utility>
+#include <string>
 
 class GameState
 {
@@ -26,6 +27,11 @@ public:
     int rowCount, columnCount;
     std::vector<std::pair<int, int>> boxPositions;
     std::pair<int, int> agentLocation;
+};
+
+struct GameStateEquivalence
+{
+    bool operator()(GameState *firstState, GameState *secondState) const;
 };
 
 #endif

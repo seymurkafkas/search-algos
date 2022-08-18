@@ -22,15 +22,10 @@ public:
      * @param fileName Name of the output file with printed steps.
      */
     static void writeStepsToFile(SearchNode *currentNode, std::string fileName);
-
     static void deleteGameMap(std::string **gameMap, int rowCount);
-
     static void printMap(std::string **gameMap, int rowCount, int columnCount);
-
     static bool isNextInputValid(std::fstream &inputFileToValidate);
-
     static void validateFileHandler(std::fstream &fileHandlerToValidate);
-
     static std::string **createMapWithDimensions(int rowCount, int columnCount);
 
     /**
