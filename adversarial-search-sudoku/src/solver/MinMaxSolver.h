@@ -8,6 +8,8 @@ class MinMaxSolver : public SudokuSolver<MinMaxSolver>
 {
 public:
     bool findWinner();
+
+private:
     int solveWithMinMax();
     int minUtility(Sudoku::GameState &state);
     int maxUtility(Sudoku::GameState &state);

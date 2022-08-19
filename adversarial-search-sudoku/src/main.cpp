@@ -11,9 +11,7 @@
 std::string fetchInputFilePath(int argc, char **argv)
 {
     if (argc != 2)
-    {
         throw std::string("Invalid Number of Command Line Arguments\n");
-    }
     else
     {
         std::string inputFilePath = argv[1];
