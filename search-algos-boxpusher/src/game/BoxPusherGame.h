@@ -11,23 +11,28 @@ class BoxPusherGame
 public:
     BoxPusherGame();
     BoxPusherGame(std::string, std::string);
+
+    void searchForSolutionWithAlgorithm(SearchAlgorithm);
     void createGameFromFile();
+
+    void setInitialGameState(GameState *);
+    int getMapRowSize();
+    void setMapRowSize(int);
+    int getMapColumnSize();
+    void setMapColumnSize(int);
+    std::string **getGameMap();
+    void setGameMap(std::string **);
+
+    std::vector<std::pair<int, int>> boxGoalPositions;
+
+private:
     SearchNode *breadthFirstSearch();
     SearchNode *iterativeDeepeningSearch();
     SearchNode *recursiveDepthLimitedSearch(SearchNode *, int);
     SearchNode *aStarSearch();
     void writeSolutionToFile(SearchNode *);
-    void setMapColumnSize(int);
-    void setMapRowSize(int);
-    int getMapColumnSize();
-    int getMapRowSize();
-    void setGameMap(std::string **);
     void printGame();
-    void searchForSolutionWithAlgorithm(SearchAlgorithm);
-    std::string **getGameMap();
-    void setInitialGameState(GameState *);
 
-    std::vector<std::pair<int, int>> boxGoalPositions;
     std::string **gameMap;
     std::string outputFileName;
     std::string inputFilePath;
