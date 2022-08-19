@@ -11,20 +11,25 @@ class GameState;
 
 class SearchNode
 {
+    friend class BoxPusherGame;
+    friend class FileHandler;
+
 public:
     SearchNode();
     SearchNode(ClosedSet *, Frontier *, SearchNode *, std::vector<std::pair<int, int>> *, GameState *, char, int, int);
     ~SearchNode();
-    bool isGoalReached();
     bool operator<(const SearchNode &);
+
+private:
     void expandNode();
     void expandNodeAStar();
+    bool isGoalReached();
+    void removeEntitiesFromUpdatedMap();
+    void writeSolutionToFile(std::string);
     SearchNode *generateSuccessorNode(char, bool);
     SearchNode *generateAStarSuccessorNodeIfUnvisited(char);
     bool isActionValid(char);
     void addEntitiesToRawMap();
-    void removeEntitiesFromUpdatedMap();
-    void writeSolutionToFile(std::string);
 
     Frontier *frontier;
     ClosedSet *visitedSet;
