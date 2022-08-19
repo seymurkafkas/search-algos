@@ -1,7 +1,7 @@
 CC        := g++
 LD        := g++
 
-MODULES   := action analytics enums game hash io timer util
+MODULES   := analytics enums game hash io timer util
 SRC_DIR   := $(addprefix src/,$(MODULES))
 BUILD_DIR := $(addprefix build/,$(MODULES))
 
