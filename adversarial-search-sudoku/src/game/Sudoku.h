@@ -25,23 +25,25 @@ namespace Sudoku
         ~GameState();
         GameState(std::unordered_set<Coordinates, CoordinateHasher, CoordinateEquivalence> unassignedEntries, int **grid, bool areActionsInitialized, Action lastAction);
         GameState(GameState &previous, Action prevAction);
-        bool isTerminalState();
         GameState getNextState(Action currentAction);
+
+        void undoAction();
+        void applyAction();
+        std::vector<Action> &getAvailableActions();
+        bool isTerminalState();
+
+    private:
         bool isActionValid(Action consideredAction);
         bool checkRowConstraint(Action consideredAction);
         bool checkColumnConstraint(Action consideredAction);
         bool checkGroupConstraint(Action consideredAction);
         void fillAvailableActions();
-        std::vector<Action> &getAvailableActions();
         int getRow(Coordinates position);
         int getColumn(Coordinates position);
         int getGroup(Coordinates position);
-        void applyAction();
-        void undoAction();
-        std::unordered_set<Coordinates, CoordinateHasher, CoordinateEquivalence> unassignedEntries;
 
-    private:
         int **grid;
+        std::unordered_set<Coordinates, CoordinateHasher, CoordinateEquivalence> unassignedEntries;
         std::vector<Action> availableActions;
         bool areActionsInitialized;
         Action previousAction;
