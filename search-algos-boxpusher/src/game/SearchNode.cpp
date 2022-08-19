@@ -1,4 +1,3 @@
-
 #include <SearchNode.h>
 #include <Frontier.h>
 #include <ClosedSet.h>

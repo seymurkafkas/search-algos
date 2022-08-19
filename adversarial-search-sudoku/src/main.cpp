@@ -1,8 +1,3 @@
-/**
-    @file main.cpp
-    @author Seymur Kafkas
-*/
-
 #include <iostream>
 #include <string>
 #include <fstream>

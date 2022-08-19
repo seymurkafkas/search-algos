@@ -8,7 +8,6 @@
 
 class BoxPusherGame
 {
-
 public:
     BoxPusherGame();
     BoxPusherGame(std::string, std::string);

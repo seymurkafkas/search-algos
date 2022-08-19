@@ -13,9 +13,7 @@ int util::getBoxNumber(std::string gridContent)
 bool util::isBoxPresent(std::string gridContent)
 {
     if (gridContent.length() < 1 || gridContent[0] != 'S')
-    {
         return false;
-    }
     return true;
 }
 

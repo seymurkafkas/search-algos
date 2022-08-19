@@ -1,4 +1,3 @@
-
 #include <PriorityQueue.h>
 
 bool PriorityQueue::isEmpty()
